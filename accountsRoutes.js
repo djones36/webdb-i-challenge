@@ -57,4 +57,17 @@ router.post("/", (req, res) => {
     });
 });
 
+//put update
+router.put("/:id", (req, res) => {
+  db("accounts")
+    .where({ id: req.params.id })
+    .update(req.body)
+    .then(update => {
+      res.status(200).json(update);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+
 module.exports = router;
