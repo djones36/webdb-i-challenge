@@ -70,4 +70,18 @@ router.put("/:id", (req, res) => {
     });
 });
 
+//delete
+router.delete("/:id", (req, res) => {
+  db("acounts")
+    .where({ id: req.params.id })
+    .del()
+    .then(account => {
+      res.status(200).json(account);
+    })
+    .catch(error => {
+      // remember to handle the error
+      res.status(500).json(error);
+    });
+});
+
 module.exports = router;
