@@ -72,7 +72,7 @@ router.put("/:id", (req, res) => {
 
 //delete
 router.delete("/:id", (req, res) => {
-  db("acounts")
+  db("accounts")
     .where({ id: req.params.id })
     .del()
     .then(account => {
